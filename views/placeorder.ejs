@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Place Order - DemFits</title>
+    <style>
+      form {
+        max-width: 780px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Place order</h1>
+
+    <div class="form-container">
+      <form action="/placeorder" method="POST">
+        <fieldset>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </fieldset>
+
+        <fieldset>
+          <label for="recipient">For</label>
+          <select id="recipient" name="recipient" required>
+            <option value="">Select recipient</option>
+            <option value="myself">Myself</option>
+            <option value="gift">Gift</option>
+            <option value="client">Client</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <label for="dueDate">Due date</label>
+          <input type="date" id="dueDate" name="dueDate" required />
+        </fieldset>
+
+        <fieldset>
+          <label for="top">Top</label>
+          <select id="top" name="top">
+            <option value="">Select top</option>
+            <option value="t-shirt">T-Shirt</option>
+            <option value="blouse">Blouse</option>
+            <option value="sweater">Sweater</option>
+            <option value="hoodie">Hoodie</option>
+            <option value="jacket">Jacket</option>
+          </select>
+          <div class="size-group">
+            <span>Size:</span>
+            <input type="text" name="topSize" placeholder="e.g. S, M, L" />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <label for="bottom">Bottom</label>
+          <select id="bottom" name="bottom">
+            <option value="">Select bottom</option>
+            <option value="jeans">Jeans</option>
+            <option value="pants">Pants</option>
+            <option value="shorts">Shorts</option>
+            <option value="skirt">Skirt</option>
+            <option value="leggings">Leggings</option>
+          </select>
+          <div class="size-group">
+            <span>Size:</span>
+            <input
+              type="text"
+              name="bottomSize"
+              placeholder="e.g. 28, 30, 32"
+            />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <label for="shoes">Shoes: options</label>
+          <select id="shoes" name="shoes">
+            <option value="">Select shoes</option>
+            <option value="sneakers">Sneakers</option>
+            <option value="boots">Boots</option>
+            <option value="sandals">Sandals</option>
+            <option value="heels">Heels</option>
+            <option value="flats">Flats</option>
+          </select>
+          <div class="size-group">
+            <span>Size:</span>
+            <input type="text" name="shoesSize" placeholder="e.g. 8, 9, 10" />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <label for="accessories">Accessories: options</label>
+          <select id="accessories" name="accessories">
+            <option value="">Select accessories</option>
+            <option value="hat">Hat</option>
+            <option value="scarf">Scarf</option>
+            <option value="belt">Belt</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="bag">Bag</option>
+            <option value="sunglasses">Sunglasses</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <label for="instructions">Additional instructions:</label>
+          <textarea
+            id="instructions"
+            name="instructions"
+            placeholder="Enter any additional instructions or preferences..."
+          ></textarea>
+        </fieldset>
+
+        <div class="button-group">
+          <button type="button" onclick="clearForm()">Clear</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function clearForm() {
+        document.querySelector("form").reset();
+      }
+    </script>
+  </body>
+</html>
