@@ -8,6 +8,9 @@ app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// serve static assets (css, images, etc.) from project root
+app.use(express.static(path.resolve(__dirname)));
+
 app.get("/", (req, res) => {
   res.send("index.html");
 });
