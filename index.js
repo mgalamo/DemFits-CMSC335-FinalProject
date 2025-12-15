@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.set("views", path.resolve(__dirname, "views"));
@@ -31,6 +31,6 @@ app.get("/cancelorder", (req, res) => {
   res.render("cancelorder");
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
