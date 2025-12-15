@@ -1,9 +1,9 @@
-body {
+body{
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #222;
 }
-
+/* home page set up and backround styles */
 .home {
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
@@ -19,7 +19,7 @@ body {
   overflow: hidden; 
 }
 /* main title */
-h1 {
+h1, .inspiration h1 {
   font-family: 'BBH Bartle', sans-serif;
   font-size: 5rem;
   margin-bottom: 2.5rem;
@@ -32,7 +32,7 @@ h1 {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 /* slogan */
-h2 {
+h2, .inspiration-content p {
   font-family: 'BBH Bartle', sans-serif;
   font-size: 1rem;
   color: #111; 
@@ -49,7 +49,7 @@ nav {
   margin-top: 1rem;
 }
 /* button styles */
-.btn {
+.btn, .inspiration-buttons button {
   font-family: 'BBH Bartle', sans-serif;
   display: inline-flex;
   align-items: center;
@@ -64,6 +64,6 @@ nav {
   border-radius: 4px;
 }
 
-.btn:hover {
+.btn:hover, .inspiration-buttons button:hover {
   opacity: 0.9;
 }
