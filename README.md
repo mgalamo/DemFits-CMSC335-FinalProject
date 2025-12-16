@@ -10,4 +10,4 @@
 
 **Contact Email:** oluwadamilolaogunbode@gmail.com  
 
-**Deployed App Link:** [render link](link)
+**Deployed App Link:** [Render](https://demfits-cmsc335-finalproject.onrender.com)
