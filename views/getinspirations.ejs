@@ -15,21 +15,38 @@
 
 <body>
     <div class="inspiration">
-  <h1>Get Inspired</h1>
-
-  <div class="inspiration-content">
-    <p>Select a category below to get inspired!</p>
-  </div>
+  <h1>Get Inspired!</h1>
 
   <!-- BUTTONS for clothings -->
   <div class="inspiration-buttons">
-    <button>TOPS</button>
-    <button>BOTTOMS</button>
-    <button>DRESSES</button>
-    <button>SHOES</button>
-    <button>ACCESSORIES</button>
-    <button>OUTFITS</button>
+    <button class="btn" onclick="loadTops()">TOPS</button>
+    <button class="btn" onclick="loadBottoms()">BOTTOMS</button>
+    <button class="btn" onclick="loadDresses()">DRESSES</button>
+    <button class="btn" onclick="loadShoes()">SHOES</button>
+    <button class="btn" onclick="loadAccessories()">ACCESSORIES</button>
+    <button class="btn" onclick="loadOutfits()">OUTFITS</button>
   </div>
+
+  <div class="inspiration-display">
+      <p class="placeholder-text" id="placeholder">
+  Select a category above to get inspired!
+</p>
+
+
+       <div class="tops-grid" id="topsGrid"></div>
+
     </div>
+</div>
+
+<!-- Image zoom modal -->
+<div class="image-modal" id="imageModal">
+  <span class="close">&times;</span>
+  <img id="modalImage">
+</div>
+
+<script src="/getinspirations.js">
+</script>
+
+
 </body>
 </html>
