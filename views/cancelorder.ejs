@@ -4,15 +4,190 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cancel Order | DEM FITS</title>
+    <style>
+      .search-form {
+        margin: 20px 0;
+      }
+      .search-form input {
+        margin: 0 10px;
+        padding: 8px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      .checkbox-col {
+        width: 50px;
+        text-align: center;
+      }
+      .delete-btn {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      .delete-btn:hover {
+        background-color: #c82333;
+      }
+      .delete-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      .no-orders {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+      }
+      .delete-section {
+        margin: 20px 0;
+      }
+    </style>
   </head>
   <body>
     <h1>Cancel Order</h1>
-    <form action="">
-      <label for="">Enter name:<input type="text" /></label>
-      <br />
-      <br />
-      <button type="submit">Cancel Order</button>
+
+    <form action="/cancelorder" method="GET" class="search-form">
+      <label for="name">
+        Enter name to search:
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= searchName %>"
+          placeholder="Enter customer name"
+          required
+        />
+      </label>
+      <button type="submit">Search Orders</button>
     </form>
+
+    <% if (searchName) { %> <% if (orders.length > 0) { %>
+    <h2>Orders for "<%= searchName %>"</h2>
+    <form id="deleteForm" action="/cancelorder/delete-selected" method="POST">
+      <table>
+        <thead>
+          <tr>
+            <th class="checkbox-col">
+              <input type="checkbox" id="selectAll" onclick="toggleAll(this)" />
+            </th>
+            <th>Name</th>
+            <th>Event</th>
+            <th>Due Date</th>
+            <th>Top</th>
+            <th>Bottom</th>
+            <th>Shoes</th>
+            <th>Accessories</th>
+            <th>Instructions</th>
+            <th>Order Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% orders.forEach(order => { %>
+          <tr>
+            <td class="checkbox-col">
+              <input
+                type="checkbox"
+                name="orderIds"
+                value="<%= order._id %>"
+                class="order-checkbox"
+                onchange="updateDeleteButton()"
+              />
+            </td>
+            <td><%= order.name %></td>
+            <td><%= order.event %></td>
+            <td><%= new Date(order.dueDate).toLocaleDateString() %></td>
+            <td>
+              <%= order.top ? `${order.top}${order.topSize ? ' (' +
+              order.topSize + ')' : ''}` : '-' %>
+            </td>
+            <td>
+              <%= order.bottom ? `${order.bottom}${order.bottomSize ? ' (' +
+              order.bottomSize + ')' : ''}` : '-' %>
+            </td>
+            <td>
+              <%= order.shoes ? `${order.shoes}${order.shoesSize ? ' (' +
+              order.shoesSize + ')' : ''}` : '-' %>
+            </td>
+            <td><%= order.accessories || '-' %></td>
+            <td><%= order.instructions || '-' %></td>
+            <td><%= new Date(order.createdAt).toLocaleDateString() %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <div class="delete-section">
+        <button
+          type="submit"
+          id="deleteBtn"
+          class="delete-btn"
+          disabled
+          onclick="return confirmDelete()"
+        >
+          Delete Selected
+        </button>
+        <span id="selectedCount" style="margin-left: 15px; color: #666"></span>
+      </div>
+    </form>
+    <% } else { %>
+    <div class="no-orders">
+      <p>No orders found for "<%= searchName %>".</p>
+    </div>
+    <% } %> <% } %>
+
     <a href="/">Home</a>
+
+    <script>
+      function toggleAll(source) {
+        const checkboxes = document.querySelectorAll(".order-checkbox");
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = source.checked;
+        });
+        updateDeleteButton();
+      }
+
+      function updateDeleteButton() {
+        const checkboxes = document.querySelectorAll(".order-checkbox:checked");
+        const deleteBtn = document.getElementById("deleteBtn");
+        const selectedCount = document.getElementById("selectedCount");
+        const selectAllCheckbox = document.getElementById("selectAll");
+
+        deleteBtn.disabled = checkboxes.length === 0;
+
+        if (checkboxes.length > 0) {
+          selectedCount.textContent = `${checkboxes.length} order(s) selected`;
+        } else {
+          selectedCount.textContent = "";
+        }
+
+        // Update "Select All" checkbox state
+        const allCheckboxes = document.querySelectorAll(".order-checkbox");
+        selectAllCheckbox.checked =
+          allCheckboxes.length > 0 &&
+          checkboxes.length === allCheckboxes.length;
+      }
+
+      function confirmDelete() {
+        const checkboxes = document.querySelectorAll(".order-checkbox:checked");
+        const count = checkboxes.length;
+        return confirm(`Are you sure you want to delete ${count} order(s)?`);
+      }
+    </script>
   </body>
 </html>

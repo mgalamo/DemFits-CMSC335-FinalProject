@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Dates | DEM FITS</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      .search-form {
+        margin: 20px 0;
+      }
+      .search-form input {
+        margin: 0 10px;
+        padding: 8px;
+      }
+      .no-orders {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Review Dates</h1>
+
+    <form action="/revieworders" method="GET" class="search-form">
+      <label for="name"
+        >Filter by Name:
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= searchName %>"
+          placeholder="Enter name"
+        />
+      </label>
+
+      <label for="date"
+        >Filter by Date:
+        <input type="date" id="date" name="date" value="<%= searchDate %>" />
+      </label>
+
+      <br />
+
+      <button type="submit">Apply Filter</button>
+      <button type="button" onclick="window.location.href='/reviewdates'">
+        Clear Filter
+      </button>
+    </form>
+
+    <% if (orders.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Event</th>
+          <th>Due Date</th>
+          <th>Top</th>
+          <th>Bottom</th>
+          <th>Shoes</th>
+          <th>Accessories</th>
+          <th>Instructions</th>
+          <th>Order Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.name %></td>
+          <td><%= order.event %></td>
+          <td><%= new Date(order.dueDate).toLocaleDateString() %></td>
+          <td>
+            <%= order.top ? `${order.top}${order.topSize ? ' (' + order.topSize
+            + ')' : ''}` : '-' %>
+          </td>
+          <td>
+            <%= order.bottom ? `${order.bottom}${order.bottomSize ? ' (' +
+            order.bottomSize + ')' : ''}` : '-' %>
+          </td>
+          <td>
+            <%= order.shoes ? `${order.shoes}${order.shoesSize ? ' (' +
+            order.shoesSize + ')' : ''}` : '-' %>
+          </td>
+          <td><%= order.accessories || '-' %></td>
+          <td><%= order.instructions || '-' %></td>
+          <td><%= new Date(order.createdAt).toLocaleDateString() %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <p><strong>Total Orders:</strong> <%= orders.length %></p>
+    <% } else { %>
+    <div class="no-orders">
+      <p>No orders found.</p>
+    </div>
+    <% } %>
+
+    <a href="/">Home</a>
+  </body>
+</html>
