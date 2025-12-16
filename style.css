@@ -50,7 +50,7 @@ nav {
   margin-top: 1rem;
 }
 /* button styles */
-.btn, .inspiration-buttons button {
+.btn, .inspiration-buttons button, .button-group button {
   font-family: 'BBH Bartle', sans-serif;
   display: inline-flex;
   align-items: center;
@@ -65,7 +65,7 @@ nav {
   border-radius: 4px;
 }
 
-.btn:hover, .inspiration-buttons button:hover {
+.btn:hover, .inspiration-buttons button:hover, .button-group button:hover {
   opacity: 0.9;
 }
 
@@ -74,10 +74,30 @@ nav {
   min-height: 100vh;
   margin: 0;
   padding: 2rem;
+
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* 👈 move content to top */
   align-items: center;
+
   background: #efd05e; /* baby yellow */
+  font-family: 'BBH Bartle', sans-serif;
+}
+
+.order-page {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;   /* 👈 puts form under title */
+  align-items: center;
+}
+
+.order-page h1 {
+  margin-bottom: 2rem;
+}
+
+.form-container {
+  width: 100%;
 }
 
 
