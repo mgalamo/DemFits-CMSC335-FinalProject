@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Cancelled | DEM FITS</title>
+
+    <!-- Google Font: BBH Bartle -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #d8b5ff;
+        font-family: "BBH Bartle", sans-serif;
+      }
+
+      .success-container {
+        text-align: center;
+        padding: 40px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #6a0dad;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.5rem;
+        color: #4b0082;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        margin: 10px;
+        background-color: #6a0dad;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #4b0082;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-container">
+      <h1>Successfully Cancelled Order</h1>
+      <p>Your order has been cancelled and removed from the system.</p>
+      <div>
+        <a href="/" class="btn">Home</a>
+        <a href="/cancelorder" class="btn">Cancel More Orders</a>
+      </div>
+    </div>
+  </body>
+</html>

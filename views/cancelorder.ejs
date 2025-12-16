@@ -76,6 +76,22 @@
   <body>
     <h1>Cancel Order</h1>
 
+    <div style="margin: 20px 0">
+      <form
+        action="/cancelorder/clear-all"
+        method="POST"
+        style="display: inline"
+      >
+        <button
+          type="submit"
+          class="delete-btn"
+          onclick="return confirm('WARNING: This will permanently delete ALL orders in the database. This action cannot be undone. Are you absolutely sure?')"
+        >
+          Clear All Orders
+        </button>
+      </form>
+    </div>
+
     <form action="/cancelorder" method="GET" class="search-form">
       <label for="name">
         Enter name to search:

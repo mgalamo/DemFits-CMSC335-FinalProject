@@ -106,11 +106,25 @@ router.post("/cancelorder/delete-selected", async (req, res) => {
 
     await Order.deleteMany({ _id: { $in: idsToDelete } });
 
-    res.redirect("/cancelorder");
+    res.redirect("/cancelordersuccess");
   } catch (error) {
     console.error("Error deleting orders:", error);
     res.status(500).send("Error canceling orders.");
   }
+});
+
+router.post("/cancelorder/clear-all", async (req, res) => {
+  try {
+    await Order.deleteMany({});
+    res.redirect("/cancelordersuccess");
+  } catch (error) {
+    console.error("Error clearing all orders:", error);
+    res.status(500).send("Error clearing all orders.");
+  }
+});
+
+router.get("/cancelordersuccess", (req, res) => {
+  res.render("cancelordersuccess");
 });
 
 module.exports = router;
