@@ -1,13 +1,13 @@
-**Submitted by:** Oluwadamilola Ogunbode (DammyOG)  
+**Submitted by:** Oluwadamilola Ogunbode (DammyOG)
 
-**Group Members:** Melodie Galamo (mgalamo), Oluwadamilola Ogunbode (DammyOG), Emmanuel Michael (EmmanuelMichael1)  
+**Group Members:** Melodie Galamo (mgalamo), Oluwadamilola Ogunbode (DammyOG), Emmanuel Michael (EmmanuelMichael1)
 
-**App Description:** clothing app  
+**App Description:** clothing app
 
-**YouTube Video Link:** [youtube link](link)  
+**YouTube Video Link:** [youtube link](link)
 
-**APIs:** [Unsplash Developer API](https://unsplash.com/)  
+**APIs:** [Unsplash Developer API](https://api.unsplash.com/)
 
-**Contact Email:** oluwadamilolaogunbode@gmail.com  
+**Contact Email:** oluwadamilolaogunbode@gmail.com
 
-**Deployed App Link:** [render link](link)
+**Deployed App Link:** [render link](https://demfits-cmsc335-finalproject.onrender.com/)
