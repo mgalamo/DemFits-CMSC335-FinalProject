@@ -69,6 +69,18 @@ nav {
   opacity: 0.9;
 }
 
+/* Place Order page background */
+.order-body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #efd05e; /* baby yellow */
+}
+
+
 /* inspiration page layout */
 .inspiration {
   display: flex;
