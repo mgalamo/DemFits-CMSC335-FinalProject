@@ -29,11 +29,15 @@ router.post("/placeorder", async (req, res) => {
     const newOrder = new Order(orderData);
     await newOrder.save();
 
-    res.redirect("/revieworders");
+    res.redirect("/ordersuccess");
   } catch (error) {
     console.error("Error saving order:", error);
     res.status(500).send("Error placing order. Please try again.");
   }
+});
+
+router.get("/ordersuccess", (req, res) => {
+  res.render("ordersuccess");
 });
 
 router.get("/getinspirations", (req, res) => {

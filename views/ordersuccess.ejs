@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Placed | DEM FITS</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .success-container {
+        text-align: center;
+        padding: 40px;
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        max-width: 500px;
+      }
+      .success-container h1 {
+        margin-bottom: 20px;
+      }
+      .success-container p {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      .button-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+      .btn {
+        padding: 12px 24px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        background-color: #6c757d;
+        color: white;
+      }
+      .btn:hover {
+        background-color: #545b62;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-container">
+      <h1>Thank You!</h1>
+      <p>Your order has been placed successfully.</p>
+      <p>Would you like to review your orders?</p>
+      <div class="button-group">
+        <a href="/revieworders" class="btn">Review Orders</a>
+        <a href="/" class="btn">Return to Home</a>
+      </div>
+    </div>
+
+    <script>
+      // Auto-redirect to home after 10 seconds if no action is taken
+      setTimeout(() => {
+        const redirected = sessionStorage.getItem("orderSuccessRedirected");
+        if (!redirected) {
+          sessionStorage.setItem("orderSuccessRedirected", "true");
+          window.location.href = "/";
+        }
+      }, 10000);
+
+      // Clear the flag when user manually navigates
+      document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          sessionStorage.setItem("orderSuccessRedirected", "true");
+        });
+      });
+    </script>
+  </body>
+</html>
