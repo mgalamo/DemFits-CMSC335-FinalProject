@@ -20,6 +20,8 @@ router.post("/placeorder", async (req, res) => {
       topSize: req.body.topSize,
       bottom: req.body.bottom,
       bottomSize: req.body.bottomSize,
+      dress: req.body.dress,
+      dressSize: req.body.dressSize,
       shoes: req.body.shoes,
       shoesSize: req.body.shoesSize,
       accessories: req.body.accessories,

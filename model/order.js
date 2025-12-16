@@ -27,6 +27,13 @@ const orderSchema = new mongoose.Schema({
   bottomSize: {
     type: String
   },
+  dress: {
+    type: String,
+    enum: ["", "casual-dress", "formal-dress", "cocktail-dress", "maxi-dress", "midi-dress", "mini-dress"]
+  },
+  dressSize: {
+    type: String
+  },
   shoes: {
     type: String,
     enum: ["", "sneakers", "boots", "sandals", "heels", "flats"]

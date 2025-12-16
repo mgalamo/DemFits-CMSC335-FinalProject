@@ -73,6 +73,7 @@
           <th>Due Date</th>
           <th>Top</th>
           <th>Bottom</th>
+          <th>Dress</th>
           <th>Shoes</th>
           <th>Accessories</th>
           <th>Instructions</th>
@@ -92,6 +93,10 @@
           <td>
             <%= order.bottom ? `${order.bottom}${order.bottomSize ? ' (' +
             order.bottomSize + ')' : ''}` : '-' %>
+          </td>
+          <td>
+            <%= order.dress ? `${order.dress}${order.dressSize ? ' (' +
+            order.dressSize + ')' : ''}` : '-' %>
           </td>
           <td>
             <%= order.shoes ? `${order.shoes}${order.shoesSize ? ' (' +
