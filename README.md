@@ -4,7 +4,7 @@
 
 **App Description:** clothing app
 
-**YouTube Video Link:** [youtube link](link)
+**YouTube Video Link:** [Link](https://youtu.be/HSOBt2-XbXI)
 
 **APIs:** [Unsplash Developer API](https://api.unsplash.com/)
 
