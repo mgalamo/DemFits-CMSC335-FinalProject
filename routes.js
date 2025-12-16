@@ -17,6 +17,11 @@ router.get("/reviewdates", (req, res) => {
   res.render("reviewdates");
 });
 
+router.post("/reviewdates", (req, res) => {
+  const search = req.body.search;
+  res.send(`Searching for: ${search}`);
+});
+
 router.get("/cancelorder", (req, res) => {
   res.render("cancelorder");
 });
